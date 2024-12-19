@@ -11,10 +11,10 @@ use App\Http\Controllers\{
 	UserController
 };
 
-Route::redirect('/', '/login');
+Route::redirect('/', '/panel/dashboard');
 
 Route::group([
-	'middleware' => 'auth',
+	// 'middleware' => 'auth',
 	'prefix' => 'panel',
 	'as' => 'admin.'
 ], function(){

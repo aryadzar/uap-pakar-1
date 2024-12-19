@@ -8,11 +8,11 @@ use Illuminate\Http\Request;
 
 class RuleController extends Controller
 {
-    function __construct()
-    {
-         $this->middleware('permission:rules-list', ['only' => ['index']]);
-         $this->middleware('permission:rules-edit', ['only' => ['update']]);
-    }
+    // function __construct()
+    // {
+    //      $this->middleware('permission:rules-list', ['only' => ['index']]);
+    //      $this->middleware('permission:rules-edit', ['only' => ['update']]);
+    // }
 
     public function index($id)
     {
@@ -45,8 +45,8 @@ class RuleController extends Controller
                 if(count($gejala_penyakit->get()) == 0) {
                     DB::table('gejala_penyakit')
                         ->insert([
-                            'penyakit_id' => $id, 
-                            'gejala_id' => $gejala_id, 
+                            'penyakit_id' => $id,
+                            'gejala_id' => $gejala_id,
                             'value_cf' => $value
                         ]);
                 } else {
@@ -78,7 +78,7 @@ class RuleController extends Controller
            ->causedBy(auth()->user())
            ->withProperties([
                 'penyakit' => Penyakit::find($id)->nama,
-                'enabled' => $enabled, 
+                'enabled' => $enabled,
                 'disabled' => $disabled,
                 'changed' => $changed
             ])

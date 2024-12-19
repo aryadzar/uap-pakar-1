@@ -10,11 +10,11 @@ use Illuminate\Http\Request;
 
 class DiagnosaController extends Controller
 {
-    function __construct()
-    {
-         $this->middleware('permission:diagnosa', ['only' => ['index']]);
-         $this->middleware('permission:diagnosa-create', ['only' => ['diagnosa']]);
-    }
+    // function __construct()
+    // {
+    //      $this->middleware('permission:diagnosa', ['only' => ['index']]);
+    //      $this->middleware('permission:diagnosa-create', ['only' => ['diagnosa']]);
+    // }
 
     public function index()
     {
@@ -61,7 +61,7 @@ class DiagnosaController extends Controller
             if(!empty($input)) {
                 $opts = explode('+', $input);
                 $gejala = Gejala::with('penyakits')->find($opts[0]);
-                
+
                 foreach($gejala->penyakits as $penyakit) {
                     if(empty($data_penyakit[$penyakit->id])){
                         $data_penyakit[$penyakit->id] = [$penyakit, [$gejala, $opts[1], $penyakit->pivot->value_cf]];
@@ -122,15 +122,15 @@ class DiagnosaController extends Controller
 
                         $hasil_cf = $cf_combine;
                     }
-                    
+
                 }
 
                 if(count($final) - 1 == $key) {
                     if($cf_max == null) {
                         $cf_max = [$hasil_cf, "{$final[0]->nama} ({$final[0]->kode})"];
                     } else {
-                        $cf_max = ($hasil_cf > $cf_max[0]) 
-                            ? [$hasil_cf, "{$final[0]->nama} ({$final[0]->kode})"] 
+                        $cf_max = ($hasil_cf > $cf_max[0])
+                            ? [$hasil_cf, "{$final[0]->nama} ({$final[0]->kode})"]
                             : $cf_max;
                     }
 
@@ -158,7 +158,7 @@ class DiagnosaController extends Controller
                             ]
                         ]
                     ];
-                } else {                        
+                } else {
                     array_push($hasil_diagnosa[$final[0]->id]['gejala'], [
                         'nama' => $final[$key][0]->nama,
                         'kode' => $final[$key][0]->kode,
@@ -180,7 +180,7 @@ class DiagnosaController extends Controller
     public function diagnosa(Request $request)
     {
         $name = auth()->user()->name;
-         
+
         if(auth()->user()->hasRole('Admin')) {
             $request->validate(['nama' => 'required|string|max:100']);
             $name = $request->nama;

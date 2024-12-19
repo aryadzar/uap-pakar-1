@@ -6,7 +6,7 @@
 	@endif
 	<x-card>
 		<x-slot name="option">
-			<div class="btn btn-success add">
+			<div class="btn btn-warning add">
 				<i class="fas fa-plus mr-1"></i> Tambahkan Penyakit
 			</div>
 		</x-slot>
@@ -26,7 +26,7 @@
 					<td>
 						<div class="d-flex justify-between-space">
 							<div>
-								<button class="btn btn-primary btn-sm edit" data-id="{{ $row->id }}"><i class="fas fa-edit"></i></button>
+								<button class="btn btn-warning btn-sm edit" data-id="{{ $row->id }}"><i class="fas fa-edit"></i></button>
 							</div>
 							<form action="{{ route('admin.penyakit.destroy', $row->id) }}" method="post">
 								@csrf
