@@ -7,13 +7,7 @@ use Illuminate\Http\Request;
 
 class PenyakitController extends Controller
 {
-    // function __construct()
-    // {
-    //      $this->middleware('permission:penyakit-list', ['only' => ['index']]);
-    //      $this->middleware('permission:penyakit-create', ['only' => ['store']]);
-    //      $this->middleware('permission:penyakit-edit', ['only' => ['update', 'json']]);
-    //      $this->middleware('permission:penyakit-delete', ['only' => ['destroy']]);
-    // }
+
 
     public function index()
     {

@@ -8,11 +8,7 @@ use Illuminate\Http\Request;
 
 class RuleController extends Controller
 {
-    // function __construct()
-    // {
-    //      $this->middleware('permission:rules-list', ['only' => ['index']]);
-    //      $this->middleware('permission:rules-edit', ['only' => ['update']]);
-    // }
+
 
     public function index($id)
     {

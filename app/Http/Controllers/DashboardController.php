@@ -12,12 +12,7 @@ use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
-    // function __construct()
-    // {
-    //      $this->middleware('permission:dashboard', ['only' => ['index']]);
-    //      $this->middleware('permission:logs-list', ['only' => ['activity_logs']]);
-    //      $this->middleware('permission:logs-delete', ['only' => ['delete_logs']]);
-    // }
+
 
     /**
     * Show dashboard

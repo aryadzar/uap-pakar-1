@@ -25,16 +25,14 @@
                     <form action="{{ route('admin.diagnosa') }}" method="post">
                     @csrf
 
-                    @role('Admin')
                     <label for=""><b><i class="fas fa-user mr-1"></i> Nama</b></label>
                     <input type="text" class="form-control mb-3 w-50" name="nama">
-                    @endrole
 
                     <p>Pilih gejala yang sedang dirasakan.</p>
 
                     <label for=""><b><i class="fas fa-th mr-1"></i> Gejala-gejala</b></label>
                     @foreach($gejala as $key => $value)
-                        @php 
+                        @php
                         $mod = ($key + 1) % 2;
                         @endphp
 
@@ -69,14 +67,14 @@
                     @if($key + 1 == \App\Models\Gejala::count() && $mod != 0)
                     </div>
                     @endif
-                        
+
                     @endforeach
                     <div class="mt-3">
                         <button type="submit" class="btn btn-primary">Diagnosa sekarang</button>
                     </div>
                 </div>
             </form>
-            </div>  
+            </div>
         </div>
     </section>
 

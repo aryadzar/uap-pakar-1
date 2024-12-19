@@ -8,11 +8,6 @@ use Illuminate\Http\Request;
 
 class RiwayatController extends Controller
 {
-    // function __construct()
-    // {
-    //      $this->middleware('permission:riwayat-list', ['only' => ['index']]);
-    //      $this->middleware('permission:riwayat-show', ['only' => ['show']]);
-    // }
 
     public function index()
     {
@@ -33,7 +28,6 @@ class RiwayatController extends Controller
 
     public function show(Riwayat $riwayat)
     {
-        $this->authorize('show', $riwayat);
         return view('admin.riwayat.show', compact('riwayat'));
     }
 }

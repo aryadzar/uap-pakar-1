@@ -10,11 +10,7 @@ use Illuminate\Http\Request;
 
 class DiagnosaController extends Controller
 {
-    // function __construct()
-    // {
-    //      $this->middleware('permission:diagnosa', ['only' => ['index']]);
-    //      $this->middleware('permission:diagnosa-create', ['only' => ['diagnosa']]);
-    // }
+
 
     public function index()
     {
@@ -179,12 +175,11 @@ class DiagnosaController extends Controller
 
     public function diagnosa(Request $request)
     {
-        $name = auth()->user()->name;
+        // $name = auth()->user()->name;
+        $request->validate(['nama' => 'required|string|max:100']);
+        $name = $request->nama;
 
-        if(auth()->user()->hasRole('Admin')) {
-            $request->validate(['nama' => 'required|string|max:100']);
-            $name = $request->nama;
-        }
+
 
         $data = $request->all();
 
@@ -199,7 +194,7 @@ class DiagnosaController extends Controller
             'hasil_diagnosa' => serialize($result['hasil_diagnosa']),
             'cf_max' => serialize($result['cf_max']),
             'gejala_terpilih' => serialize($result['gejala_terpilih']),
-            'user_id' => auth()->id()
+            'user_id' => 5
         ]);
 
         $path = public_path('storage/downloads');

@@ -7,13 +7,7 @@ use Illuminate\Http\Request;
 
 class GejalaController extends Controller
 {
-    // function __construct()
-    // {
-    //      $this->middleware('permission:gejala-list', ['only' => ['index']]);
-    //      $this->middleware('permission:gejala-create', ['only' => ['store']]);
-    //      $this->middleware('permission:gejala-edit', ['only' => ['update', 'json']]);
-    //      $this->middleware('permission:gejala-delete', ['only' => ['destroy']]);
-    // }
+
 
     public function index()
     {

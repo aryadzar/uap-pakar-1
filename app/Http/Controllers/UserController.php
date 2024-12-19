@@ -13,13 +13,7 @@ use Illuminate\Support\Arr;
 
 class UserController extends Controller
 {
-	// function __construct()
-    // {
-    //      $this->middleware('permission:member-list|member-create|member-edit|member-delete', ['only' => ['index','store']]);
-    //      $this->middleware('permission:member-create', ['only' => ['create','store']]);
-    //      $this->middleware('permission:member-edit', ['only' => ['edit','update']]);
-    //      $this->middleware('permission:member-delete', ['only' => ['destroy']]);
-    // }
+
 
     public function index(Request $request)
     {
