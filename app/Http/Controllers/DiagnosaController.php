@@ -22,23 +22,11 @@ class DiagnosaController extends Controller
     public function tingkat_keyakinan($keyakinan)
     {
         switch ($keyakinan) {
-            case -0.8:
-                return 'Hampir pasti tidak';
-                break;
-            case -1:
-                return 'Pasti tidak';
-                break;
-            case -0.6:
-                return 'Kemungkinan besar tidak';
-                break;
-            case -0.4:
-                return 'Mungkin tidak';
-                break;
             case 0.4:
                 return 'Mungkin';
                 break;
             case 0.6:
-                return 'Sangat Mungkin';
+                return 'Kemungkinan besar';
                 break;
             case 0.8:
                 return 'Hampir pasti';
